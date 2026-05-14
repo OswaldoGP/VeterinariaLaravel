@@ -21,5 +21,12 @@ class DatabaseSeeder extends Seeder
             'password' => 'admin',
             'rol' => 'administrador',
         ]);
+
+        User::create([
+            'name' => 'veterinario',
+            'email' => 'vet@vet.com',
+            'password' => 'vet',
+            'rol' => 'veterinario',
+        ]);
     }
 }
