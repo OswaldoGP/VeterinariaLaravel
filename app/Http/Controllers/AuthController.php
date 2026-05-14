@@ -33,6 +33,9 @@ class AuthController extends Controller
         ];
 
         if (Auth::attempt($creadenciales)) {
+            if (Auth::user()->rol === 'administrador') {
+                return to_route('admin.home');
+            }
             return to_route('home');
         } else {
             return to_route('login');
@@ -44,7 +47,26 @@ class AuthController extends Controller
         Auth::logout();
         return to_route('login');
     }
+
     public function home() {
+        if (!Auth::check() || Auth::user()->rol !== 'veterinario') {
+            // Si es administrador, lo mandamos a su panel
+            if (Auth::check() && Auth::user()->rol === 'administrador') {
+                return to_route('admin.home');
+            }
+            return to_route('login');
+        }
         return view('modules/dashboard/home');
+    }
+
+    public function adminHome() {
+        if (!Auth::check() || Auth::user()->rol !== 'administrador') {
+            // Si es veterinario, lo mandamos a su panel
+            if (Auth::check() && Auth::user()->rol === 'veterinario') {
+                return to_route('home');
+            }
+            return to_route('login');
+        }
+        return view('modules/dashboard/admin_home');
     }
 }

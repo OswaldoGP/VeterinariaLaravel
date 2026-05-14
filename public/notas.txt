@@ -1,0 +1,7 @@
+analiza la seccion de login, y ahora quiero discrepar por roles, si es veterinario
+que vaya al dashboard existente si es admnistrador, hay que crear un dashboard nuevo
+
+asi tambien requiero un layout para administrador ya que necesito partials propias para administrador
+utiliza, de igual manera la plantilla que esta en public en la raiz del proyecto
+para implementar esta seccion, dame el plan de implementacion antes de hacer cualquier 
+cosa para revisarlo
