@@ -14,4 +14,5 @@ Route::middleware("auth")->group(function () {
     Route::get('/home',[AuthController::class,'home'])->name('home');
     Route::get('/admin/home', [AuthController::class, 'adminHome'])->name('admin.home');
     Route::match(['get', 'post'], '/logout',[AuthController::class,'logout'])->name('logout');
+    Route::resource('/admin/users', \App\Http\Controllers\Admin\UserController::class)->names('admin.users');
 });

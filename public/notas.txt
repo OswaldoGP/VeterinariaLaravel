@@ -5,3 +5,11 @@ asi tambien requiero un layout para administrador ya que necesito partials propi
 utiliza, de igual manera la plantilla que esta en public en la raiz del proyecto
 para implementar esta seccion, dame el plan de implementacion antes de hacer cualquier 
 cosa para revisarlo
+
+
+creame en el seeder de users un usuario veterinario tambien, y vuelve a correr las migraciones ademas de refrescarlas
+
+
+
+2do comando
+Crea una vista para el menu de usuario del role administrador y tambien su ruta , a su vez conectalo con el sidebar

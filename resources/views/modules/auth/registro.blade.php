@@ -9,7 +9,7 @@
             <div class="card-body p-0">
                 <!-- Nested Row within Card Body -->
                 <div class="row">
-                    <div class="col-lg-6 d-none d-lg-block bg-login-image" style="background-image: url('{{ asset('img/perrito-login.jpg') }}');"></div>
+                    <div class="col-lg-6 d-none d-lg-block bg-login-image" style="background-image: url('{{ asset('img/Gemini_Generated_Image_jqbd1sjqbd1sjqbd.png') }}'); background-position: center; background-size: cover;"></div>
                     <div class="col-lg-6">
                         <div class="p-5">
                             <div class="text-center">

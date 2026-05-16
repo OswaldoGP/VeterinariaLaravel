@@ -22,11 +22,18 @@ class DatabaseSeeder extends Seeder
             'rol' => 'administrador',
         ]);
 
-        User::create([
+        $vet = User::create([
             'name' => 'veterinario',
             'email' => 'vet@vet.com',
             'password' => 'vet',
             'rol' => 'veterinario',
+        ]);
+
+        \App\Models\Veterinario::create([
+            'user_id' => $vet->id,
+            'especialidad' => 'General',
+            'telefono' => '1234567890',
+            'cedula_profesional' => 'CED-123456'
         ]);
     }
 }

@@ -47,4 +47,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function veterinario()
+    {
+        return $this->hasOne(Veterinario::class);
+    }
 }

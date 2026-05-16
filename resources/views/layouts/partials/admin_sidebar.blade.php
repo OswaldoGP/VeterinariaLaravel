@@ -31,11 +31,11 @@
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUsuarios"
             aria-expanded="true" aria-controls="collapseUsuarios">
             <i class="fas fa-fw fa-users-cog"></i>
-            <span>Gestión de Usuarios</span>
+            <span>Usuarios</span>
         </a>
         <div id="collapseUsuarios" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="#">Lista de Usuarios</a>
+                <a class="collapse-item" href="{{ route('admin.users.index') }}">Gestión de Usuarios</a>
                 <a class="collapse-item" href="#">Roles y Permisos</a>
             </div>
         </div>

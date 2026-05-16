@@ -58,6 +58,31 @@
     </li>
 
     <!-- Divider -->
+    @if(auth()->check() && auth()->user()->rol === 'administrador')
+    <hr class="sidebar-divider">
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Administración
+    </div>
+
+    <!-- Nav Item - Usuarios -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUsuarios"
+            aria-expanded="true" aria-controls="collapseUsuarios">
+            <i class="fas fa-fw fa-user-cog"></i>
+            <span>Usuarios</span>
+        </a>
+        <div id="collapseUsuarios" class="collapse" aria-labelledby="headingUsuarios"
+            data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="{{ route('admin.users.index') }}">Lista de Usuarios</a>
+                <a class="collapse-item" href="{{ route('admin.users.create') }}">Agregar Usuario</a>
+            </div>
+        </div>
+    </li>
+    @endif
+
     <hr class="sidebar-divider d-none d-md-block">
 
     <!-- Sidebar Toggler (Sidebar) -->
