@@ -5,6 +5,15 @@
         <i class="fa fa-bars"></i>
     </button>
 
+    <!-- Topbar Navbar Links (Left) -->
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <a class="nav-link font-weight-bold" href="{{ route('expedientes.index') }}" style="color: #4e73df;">
+                <i class="fas fa-folder-open mr-2"></i> Expedientes
+            </a>
+        </li>
+    </ul>
+
     <!-- Topbar Navbar -->
     <ul class="navbar-nav ml-auto">
 

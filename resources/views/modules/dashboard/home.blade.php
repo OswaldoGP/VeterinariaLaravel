@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
+@section('hide_sidebar', true)
+
 @section('title', 'Dashboard')
 
 @section('content')

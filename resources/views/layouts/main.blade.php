@@ -8,7 +8,9 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
         <!-- Sidebar -->
-        @include('layouts.partials.sidebar')
+        @unless(View::hasSection('hide_sidebar'))
+            @include('layouts.partials.sidebar')
+        @endunless
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
