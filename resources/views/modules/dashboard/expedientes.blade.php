@@ -21,7 +21,38 @@
                     <h6 class="m-0 font-weight-bold text-primary">Gestión de Expedientes</h6>
                 </div>
                 <div class="card-body">
-                    <p>Aquí podrás gestionar los expedientes de las mascotas.</p>
+                    <!-- Buscador -->
+                    <div class="row justify-content-center mb-4 mt-3">
+                        <div class="col-md-8">
+                            <div class="input-group input-group-lg shadow-sm">
+                                <input type="text" class="form-control" placeholder="Buscar mascota por nombre, dueño o expediente..." aria-label="Buscar" aria-describedby="button-search">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="button" id="button-search">
+                                        <i class="fas fa-search"></i> Buscar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Botones de Acción -->
+                    <div class="row justify-content-center mb-3">
+                        <div class="col-md-8 text-center">
+                            <button type="button" class="btn btn-info btn-icon-split mr-3 mb-2 shadow-sm">
+                                <span class="icon text-white-50">
+                                    <i class="fas fa-file-medical-alt"></i>
+                                </span>
+                                <span class="text">Ver Consultas</span>
+                            </button>
+                            
+                            <button type="button" class="btn btn-success btn-icon-split mb-2 shadow-sm">
+                                <span class="icon text-white-50">
+                                    <i class="fas fa-paw"></i>
+                                </span>
+                                <span class="text">Nuevo Paciente / Mascota</span>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
