@@ -3,9 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
 
 class Mascota extends Model
 {
+    use Searchable;
     protected $fillable = [
         'dueno_id',
         'nombre',
@@ -20,5 +22,14 @@ class Mascota extends Model
     public function dueno()
     {
         return $this->belongsTo(Dueno::class);
+    }
+
+    public function toSearchableArray()
+    {
+        return [
+            'id' => (string) $this->id,
+            'nombre' => $this->nombre,
+            'dueno_nombre' => $this->dueno ? $this->dueno->nombre_completo : '',
+        ];
     }
 }
