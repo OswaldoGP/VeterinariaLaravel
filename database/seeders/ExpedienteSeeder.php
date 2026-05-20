@@ -33,8 +33,7 @@ class ExpedienteSeeder extends Seeder
             );
             
             $veterinario = Veterinario::create([
-                'usuario_id' => $user->id,
-                'nombre_completo' => 'Dr. Prueba Test',
+                'user_id' => $user->id,
                 'especialidad' => 'Medicina General',
                 'cedula_profesional' => '12345678',
             ]);

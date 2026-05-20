@@ -5,85 +5,83 @@
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-paw"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Veterinaria</div>
+        <div class="sidebar-brand-text mx-3">VETERINARIA</div>
     </a>
 
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
 
-    <!-- Nav Item - Dashboard -->
-    <li class="nav-item active">
-        <a class="nav-link" href="{{ url('/') }}">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span></a>
+    <!-- Heading -->
+    <div class="sidebar-heading mt-3">
+        Consulta
+    </div>
+
+    <!-- Nav Item - Diagnóstico -->
+    <li class="nav-item">
+        <a class="nav-link pt-2 pb-2" href="#diagnostico">
+            <i class="fas fa-fw fa-file-medical-alt"></i>
+            <span>Diagnóstico</span>
+        </a>
+    </li>
+
+    <!-- Nav Item - Tratamiento -->
+    <li class="nav-item">
+        <a class="nav-link pt-2 pb-2" href="#tratamiento">
+            <i class="fas fa-fw fa-pills"></i>
+            <span>Tratamiento</span>
+        </a>
     </li>
 
     <!-- Divider -->
-    <hr class="sidebar-divider">
+    <hr class="sidebar-divider mt-2 mb-2">
 
     <!-- Heading -->
     <div class="sidebar-heading">
-        Gestión
+        Antecedentes
     </div>
 
-    <!-- Nav Item - Mascotas -->
+    <!-- Nav Item - Alergias -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseMascotas"
-            aria-expanded="true" aria-controls="collapseMascotas">
-            <i class="fas fa-fw fa-dog"></i>
-            <span>Mascotas</span>
+        <a class="nav-link pt-2 pb-2" href="#alergias">
+            <i class="fas fa-fw fa-hand-paper"></i>
+            <span>Alergias</span>
         </a>
-        <div id="collapseMascotas" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="#">Lista de Mascotas</a>
-                <a class="collapse-item" href="#">Agregar Mascota</a>
-            </div>
-        </div>
     </li>
 
-    <!-- Nav Item - Clientes -->
+    <!-- Nav Item - Lesiones -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseClientes"
-            aria-expanded="true" aria-controls="collapseClientes">
-            <i class="fas fa-fw fa-users"></i>
-            <span>Clientes</span>
+        <a class="nav-link pt-2 pb-2" href="#lesiones">
+            <i class="fas fa-fw fa-bone"></i>
+            <span>Lesiones</span>
         </a>
-        <div id="collapseClientes" class="collapse" aria-labelledby="headingUtilities"
-            data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="#">Lista de Clientes</a>
-                <a class="collapse-item" href="#">Agregar Cliente</a>
-            </div>
-        </div>
+    </li>
+
+    <!-- Nav Item - Patológicos -->
+    <li class="nav-item">
+        <a class="nav-link pt-2 pb-2" href="#patologicos">
+            <i class="fas fa-fw fa-heartbeat"></i>
+            <span>Patológicos</span>
+        </a>
     </li>
 
     <!-- Divider -->
-    @if(auth()->check() && auth()->user()->rol === 'administrador')
-    <hr class="sidebar-divider">
+    <hr class="sidebar-divider mt-2 mb-2">
 
     <!-- Heading -->
     <div class="sidebar-heading">
-        Administración
+        Historial
     </div>
 
-    <!-- Nav Item - Usuarios -->
+    <!-- Nav Item - Alimentación -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUsuarios"
-            aria-expanded="true" aria-controls="collapseUsuarios">
-            <i class="fas fa-fw fa-user-cog"></i>
-            <span>Usuarios</span>
+        <a class="nav-link pt-2 pb-2" href="#alimentacion">
+            <i class="fas fa-fw fa-utensils"></i>
+            <span>Alimentación</span>
         </a>
-        <div id="collapseUsuarios" class="collapse" aria-labelledby="headingUsuarios"
-            data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="{{ route('admin.users.index') }}">Lista de Usuarios</a>
-                <a class="collapse-item" href="{{ route('admin.users.create') }}">Agregar Usuario</a>
-            </div>
-        </div>
     </li>
-    @endif
 
-    <hr class="sidebar-divider d-none d-md-block">
+    <!-- Divider -->
+    <hr class="sidebar-divider d-none d-md-block mt-3">
 
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">

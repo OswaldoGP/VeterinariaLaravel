@@ -16,6 +16,19 @@ Route::middleware("auth")->group(function () {
     Route::get('/home',[AuthController::class,'home'])->name('home');
     
     Route::view('/expedientes', 'modules.dashboard.expedientes')->name('expedientes.index');
+    Route::get('/expedientes/{mascota}/consultas', function (\App\Models\Mascota $mascota) {
+        $mascota->load('dueno', 'consultas.veterinario.user');
+        return view('modules.dashboard.consultas', compact('mascota'));
+    })->name('expedientes.consultas');
+
+    Route::get('/expedientes/{mascota}/consultas/{consulta}', function (\App\Models\Mascota $mascota, \App\Models\Consulta $consulta) {
+        if ($consulta->mascota_id !== $mascota->id) {
+            abort(404);
+        }
+        $consulta->load('veterinario.user');
+        $mascota->load('dueno');
+        return view('modules.dashboard.consulta_show', compact('mascota', 'consulta'));
+    })->name('expedientes.consultas.show');
     Route::get('/expedientes/search', function (Request $request) {
         $query = $request->input('q');
         if (!$query) {

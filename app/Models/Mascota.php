@@ -24,6 +24,11 @@ class Mascota extends Model
         return $this->belongsTo(Dueno::class);
     }
 
+    public function consultas()
+    {
+        return $this->hasMany(Consulta::class);
+    }
+
     public function toSearchableArray()
     {
         return [

@@ -14,6 +14,7 @@ class Consulta extends Model
         'talla',
         'diagnostico',
         'tratamiento',
+        'antecedentes',
     ];
 
     protected $casts = [
