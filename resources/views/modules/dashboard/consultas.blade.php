@@ -85,7 +85,7 @@
                                     <td>{{ $consulta->fecha_consulta->format('d/m/Y H:i') }}</td>
                                     <td>{{ $consulta->veterinario->user->name ?? 'N/A' }}</td>
                                     <td>{{ $consulta->peso ?? '-' }} kg / {{ $consulta->talla ?? '-' }} cm</td>
-                                    <td>{{ Str::limit($consulta->diagnostico, 50) }}</td>
+                                    <td>{{ Str::limit(strip_tags($consulta->diagnostico), 50) }}</td>
                                     <td>
                                         <a href="{{ route('expedientes.consultas.show', ['mascota' => $mascota->id, 'consulta' => $consulta->id]) }}" class="btn btn-sm btn-info" title="Ver Detalle">
                                             <i class="fas fa-eye"></i>

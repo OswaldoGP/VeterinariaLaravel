@@ -29,6 +29,24 @@ Route::middleware("auth")->group(function () {
         $mascota->load('dueno');
         return view('modules.dashboard.consulta_show', compact('mascota', 'consulta'));
     })->name('expedientes.consultas.show');
+
+    Route::get('/expedientes/{mascota}/consultas/{consulta}/diagnostico', function (\App\Models\Mascota $mascota, \App\Models\Consulta $consulta) {
+        if ($consulta->mascota_id !== $mascota->id) abort(404);
+        return view('modules.dashboard.diagnostico', compact('mascota', 'consulta'));
+    })->name('expedientes.consultas.diagnostico');
+
+    Route::put('/expedientes/{mascota}/consultas/{consulta}/diagnostico', function (\Illuminate\Http\Request $request, \App\Models\Mascota $mascota, \App\Models\Consulta $consulta) {
+        if ($consulta->mascota_id !== $mascota->id) abort(404);
+        $request->validate(['diagnostico' => 'nullable|string']);
+        
+        $esNuevo = empty($consulta->diagnostico);
+        
+        $consulta->update(['diagnostico' => $request->diagnostico]);
+        
+        $mensaje = $esNuevo ? 'se guardo la nueva informacion' : 'se actualizo con exito';
+        
+        return redirect()->route('expedientes.consultas.diagnostico', [$mascota->id, $consulta->id])->with('success', $mensaje);
+    })->name('expedientes.consultas.diagnostico.update');
     Route::get('/expedientes/search', function (Request $request) {
         $query = $request->input('q');
         if (!$query) {
