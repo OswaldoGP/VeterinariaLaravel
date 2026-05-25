@@ -1,0 +1,114 @@
+:root {
+  --primary: #6f42c1;
+  --primary-dark: #59339d;
+  --primary-light: #e0d4f5;
+  --text-dark: #2d3748;
+}
+
+/* Overriding Bootstrap & SB Admin 2 Primary Colors */
+.bg-gradient-primary {
+  background-color: var(--primary) !important;
+  background-image: linear-gradient(180deg, var(--primary) 10%, var(--primary-dark) 100%) !important;
+  background-size: cover !important;
+}
+
+.bg-primary {
+  background-color: var(--primary) !important;
+}
+
+.text-primary {
+  color: var(--primary) !important;
+}
+
+.btn-primary {
+  background-color: var(--primary) !important;
+  border-color: var(--primary) !important;
+  color: #ffffff !important;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+  background-color: var(--primary-dark) !important;
+  border-color: var(--primary-dark) !important;
+}
+
+.border-left-primary {
+  border-left-color: var(--primary) !important;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    background-color: var(--primary) !important;
+}
+
+/* Minimalist & Clean Additions */
+body {
+    font-family: 'Inter', 'Nunito', sans-serif !important;
+    color: var(--text-dark) !important;
+    background-color: #f8f9fc !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-dark) !important;
+    font-weight: 600 !important;
+}
+
+.card {
+    border-radius: 12px !important;
+    border: none !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+}
+
+.card-header {
+    background-color: #ffffff !important;
+    border-bottom: 1px solid #edf2f7 !important;
+    border-top-left-radius: 12px !important;
+    border-top-right-radius: 12px !important;
+}
+
+/* Cleaner Sidebar */
+.sidebar {
+    background-color: var(--primary) !important;
+    background-image: none !important; /* Flat color for minimalist look */
+}
+
+.sidebar .nav-item .nav-link {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.sidebar .nav-item.active .nav-link {
+    color: #ffffff !important;
+    font-weight: 700;
+}
+
+.sidebar .sidebar-heading {
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Forms */
+.form-control, .form-control-user {
+    border-radius: 8px !important;
+    border: 1px solid #e2e8f0 !important;
+    color: var(--text-dark) !important;
+}
+
+.form-control:focus, .form-control-user:focus {
+    border-color: var(--primary-light) !important;
+    box-shadow: 0 0 0 3px rgba(111, 66, 193, 0.15) !important;
+}
+
+.btn {
+    border-radius: 8px !important;
+    font-weight: 500 !important;
+    padding: 0.5rem 1rem !important;
+}
+
+.btn-user {
+    border-radius: 8px !important;
+    padding: 0.75rem 1rem !important;
+}
+
+/* Login Image Circular */
+.rounded-logo {
+    border-radius: 50%;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    border: 5px solid white;
+}

@@ -39,14 +39,14 @@
         <li class="nav-item dropdown no-arrow">
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name ?? 'Administrador Supremo' }}</span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }} - {{ Auth::user()->rol }}</span>
                 <img class="img-profile rounded-circle"
-                    src="{{ asset('Plantilla7u7/img/undraw_profile_3.svg') }}">
+                    src="{{ Auth::user()->foto_perfil ? asset('storage/' . Auth::user()->foto_perfil) : asset('Plantilla7u7/img/undraw_profile_3.svg') }}" style="object-fit: cover;">
             </a>
             <!-- Dropdown - User Information -->
             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                 aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">
+                <a class="dropdown-item" href="{{ route('perfil.index') }}">
                     <i class="fas fa-user-shield fa-sm fa-fw mr-2 text-gray-400"></i>
                     Perfil Admin
                 </a>

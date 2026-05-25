@@ -15,6 +15,10 @@
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('Plantilla7u7/css/sb-admin-2.min.css') }}" rel="stylesheet">
+    
+    <!-- Custom Minimalist Purple Theme -->
+    <link href="{{ asset('css/custom-theme.css') }}" rel="stylesheet">
+    
     @yield('styles')
 </head>
 <body class="bg-gradient-primary">

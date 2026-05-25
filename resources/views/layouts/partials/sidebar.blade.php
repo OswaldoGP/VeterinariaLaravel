@@ -25,8 +25,8 @@
     </li>
 
     <!-- Nav Item - Tratamiento -->
-    <li class="nav-item">
-        <a class="nav-link pt-2 pb-2" href="#tratamiento">
+    <li class="nav-item {{ request()->routeIs('expedientes.consultas.tratamiento') ? 'active' : '' }}">
+        <a class="nav-link pt-2 pb-2" href="{{ isset($mascota) && isset($consulta) ? route('expedientes.consultas.tratamiento', [$mascota->id, $consulta->id]) : '#' }}">
             <i class="fas fa-fw fa-pills"></i>
             <span>Tratamiento</span>
         </a>
@@ -41,24 +41,24 @@
     </div>
 
     <!-- Nav Item - Alergias -->
-    <li class="nav-item">
-        <a class="nav-link pt-2 pb-2" href="#alergias">
+    <li class="nav-item {{ request()->routeIs('expedientes.mascota.alergias') ? 'active' : '' }}">
+        <a class="nav-link pt-2 pb-2" href="{{ isset($mascota) ? route('expedientes.mascota.alergias', $mascota->id) : '#' }}">
             <i class="fas fa-fw fa-hand-paper"></i>
             <span>Alergias</span>
         </a>
     </li>
 
     <!-- Nav Item - Lesiones -->
-    <li class="nav-item">
-        <a class="nav-link pt-2 pb-2" href="#lesiones">
+    <li class="nav-item {{ request()->routeIs('expedientes.mascota.lesiones') ? 'active' : '' }}">
+        <a class="nav-link pt-2 pb-2" href="{{ isset($mascota) ? route('expedientes.mascota.lesiones', $mascota->id) : '#' }}">
             <i class="fas fa-fw fa-bone"></i>
             <span>Lesiones</span>
         </a>
     </li>
 
     <!-- Nav Item - Patológicos -->
-    <li class="nav-item">
-        <a class="nav-link pt-2 pb-2" href="#patologicos">
+    <li class="nav-item {{ request()->routeIs('expedientes.mascota.patologias') ? 'active' : '' }}">
+        <a class="nav-link pt-2 pb-2" href="{{ isset($mascota) ? route('expedientes.mascota.patologias', $mascota->id) : '#' }}">
             <i class="fas fa-fw fa-heartbeat"></i>
             <span>Patológicos</span>
         </a>
@@ -73,8 +73,8 @@
     </div>
 
     <!-- Nav Item - Alimentación -->
-    <li class="nav-item">
-        <a class="nav-link pt-2 pb-2" href="#alimentacion">
+    <li class="nav-item {{ request()->routeIs('expedientes.mascota.alimentacion') ? 'active' : '' }}">
+        <a class="nav-link pt-2 pb-2" href="{{ isset($mascota) ? route('expedientes.mascota.alimentacion', $mascota->id) : '#' }}">
             <i class="fas fa-fw fa-utensils"></i>
             <span>Alimentación</span>
         </a>
