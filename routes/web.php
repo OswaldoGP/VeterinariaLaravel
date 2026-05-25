@@ -19,6 +19,44 @@ Route::middleware("auth")->group(function () {
     Route::get('/home',[AuthController::class,'home'])->name('home');
     
     Route::view('/expedientes', 'modules.dashboard.expedientes')->name('expedientes.index');
+
+    Route::get('/expedientes/create', function () {
+        return view('modules.dashboard.mascota_create');
+    })->name('expedientes.create');
+
+    Route::post('/expedientes/store', function (\Illuminate\Http\Request $request) {
+        $request->validate([
+            'dueno_nombre' => 'required|string|max:255',
+            'dueno_telefono' => 'nullable|string|max:20',
+            'dueno_direccion' => 'nullable|string|max:255',
+            'mascota_nombre' => 'required|string|max:255',
+            'mascota_especie' => 'required|string|max:100',
+            'mascota_raza' => 'nullable|string|max:100',
+            'mascota_fecha_nacimiento' => 'nullable|date',
+            'mascota_tipo_sangre' => 'nullable|string|max:50',
+            'mascota_comportamiento' => 'nullable|string|max:255',
+            'mascota_es_adoptado' => 'boolean'
+        ]);
+
+        $dueno = \App\Models\Dueno::create([
+            'nombre_completo' => $request->dueno_nombre,
+            'telefono' => $request->dueno_telefono,
+            'direccion' => $request->dueno_direccion,
+        ]);
+
+        $mascota = $dueno->mascotas()->create([
+            'nombre' => $request->mascota_nombre,
+            'especie' => $request->mascota_especie,
+            'raza' => $request->mascota_raza,
+            'fecha_nacimiento' => $request->mascota_fecha_nacimiento,
+            'tipo_sangre' => $request->mascota_tipo_sangre,
+            'comportamiento' => $request->mascota_comportamiento,
+            'es_adoptado' => $request->has('mascota_es_adoptado') ? 1 : 0,
+        ]);
+
+        return redirect()->route('expedientes.consultas', $mascota->id)->with('success', 'Expediente de mascota creado con éxito');
+    })->name('expedientes.store');
+
     Route::get('/expedientes/{mascota}/consultas', function (\App\Models\Mascota $mascota) {
         $mascota->load('dueno');
         $consultas = $mascota->consultas()->with('veterinario.user')->orderBy('fecha_consulta', 'desc')->paginate(3);

@@ -95,7 +95,19 @@
                         </div>
                     </div>
 
-
+                    <!-- Diagnóstico -->
+                    <div class="mt-4">
+                        <h6 class="font-weight-bold text-gray-800 border-bottom pb-2 mb-3">
+                            <i class="fas fa-file-medical text-primary mr-2"></i>Diagnóstico
+                        </h6>
+                        <div class="p-3 bg-light border rounded text-gray-800" style="min-height: 100px;">
+                            @if($consulta->diagnostico)
+                                {!! nl2br(e($consulta->diagnostico)) !!}
+                            @else
+                                <span class="text-muted fst-italic">No hay diagnóstico registrado para esta consulta.</span>
+                            @endif
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

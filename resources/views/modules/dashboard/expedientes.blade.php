@@ -44,12 +44,12 @@
                                 <span class="text">Ver Consultas</span>
                             </button>
                             
-                            <button type="button" class="btn btn-success btn-icon-split mb-2 shadow-sm">
+                            <a href="{{ route('expedientes.create') }}" class="btn btn-success btn-icon-split mb-2 shadow-sm">
                                 <span class="icon text-white-50">
                                     <i class="fas fa-paw"></i>
                                 </span>
                                 <span class="text">Nuevo Paciente / Mascota</span>
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>

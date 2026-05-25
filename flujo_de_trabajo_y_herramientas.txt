@@ -33,6 +33,14 @@ A lo largo del desarrollo de nuestro sistema de gestión veterinaria, hemos segu
    - Mejoramos la experiencia de usuario (UX) ocultando o mostrando campos dinámicamente según el rol seleccionado (ej. mostrar campos de especialidad y cédula solo si al crear un usuario seleccionamos el rol de "Veterinario").
    - Construimos vistas detalladas para los expedientes clínicos de las mascotas, diseñando un sistema de navegación (sidebar específico) dentro del perfil de cada mascota para gestionar apartados como antecedentes, alergias, lesiones y nutrición.
 
+8. **Creación Unificada de Pacientes (Formularios 2 en 1):**
+   - Para optimizar el flujo de trabajo del veterinario o recepcionista, diseñamos un formulario unificado (`mascota_create`) que permite registrar en un solo paso los datos del "Dueño" y los datos del "Paciente (Mascota)", manejando la lógica de inserción relacional en el backend (creando primero el dueño y luego asociándole la mascota).
+
+9. **Arquitectura EHR (Expedientes Clínicos Electrónicos) y CRUDs Dinámicos:**
+   - Separamos conceptualmente los "Eventos" (Consultas del día a día) de los "Estados Permanentes" (Alergias, Lesiones, Patologías Crónicas, Alimentación).
+   - Desarrollamos un sistema CRUD (Ver, Crear, Editar, Eliminar) completamente estandarizado para los módulos del expediente. Implementamos vistas de confirmación de eliminación con validaciones visuales para prevenir borrados accidentales de información médica crítica.
+   - Ocultamos dinámicamente elementos de navegación irrelevantes (como el menú lateral) en vistas de creación o perfil para lograr un diseño "Full Width" que mejore la concentración del usuario.
+
 ---
 
 ## 2. Herramientas y Conceptos Clave Utilizados
