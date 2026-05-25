@@ -76,12 +76,18 @@
                                     <td>{{ $lesion->created_at->format('d/m/Y') }}</td>
                                     <td>{{ $lesion->tipo }}</td>
                                     <td>{{ $lesion->descripcion }}</td>
-                                    <td>
-                                        <form action="{{ route('expedientes.mascota.lesiones.destroy', $lesion->id) }}" method="POST" onsubmit="return confirm('¿Eliminar este registro?');">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
-                                        </form>
+                                    <td class="text-center">
+                                        <div class="btn-group" role="group">
+                                            <a href="{{ route('expedientes.mascota.lesiones.show', $lesion->id) }}" class="btn btn-info btn-sm" title="Ver Detalle">
+                                                <i class="fas fa-eye"></i>
+                                            </a>
+                                            <a href="{{ route('expedientes.mascota.lesiones.edit', $lesion->id) }}" class="btn btn-warning btn-sm" title="Editar Lesión">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                            <a href="{{ route('expedientes.mascota.lesiones.delete', $lesion->id) }}" class="btn btn-danger btn-sm" title="Eliminar Lesión">
+                                                <i class="fas fa-trash"></i>
+                                            </a>
+                                        </div>
                                     </td>
                                 </tr>
                                 @empty

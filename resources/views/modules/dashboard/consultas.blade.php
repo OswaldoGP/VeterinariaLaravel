@@ -11,6 +11,15 @@
         </a>
     </div>
 
+    @if(session('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('success') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endif
+
     <!-- Información de la Mascota y Dueño -->
     <div class="row mb-4">
         <div class="col-md-6">
@@ -62,12 +71,12 @@
     <div class="card shadow mb-4">
         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
             <h6 class="m-0 font-weight-bold text-primary">Historial de Consultas</h6>
-            <button class="btn btn-sm btn-success shadow-sm">
+            <a href="{{ route('expedientes.consultas.create', $mascota->id) }}" class="btn btn-sm btn-success shadow-sm">
                 <i class="fas fa-plus fa-sm text-white-50"></i> Nueva Consulta
-            </button>
+            </a>
         </div>
         <div class="card-body">
-            @if($mascota->consultas && $mascota->consultas->count() > 0)
+            @if($consultas && $consultas->count() > 0)
                 <div class="table-responsive">
                     <table class="table table-bordered" width="100%" cellspacing="0">
                         <thead>
@@ -80,21 +89,32 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($mascota->consultas as $consulta)
+                            @foreach($consultas as $consulta)
                                 <tr>
                                     <td>{{ $consulta->fecha_consulta->format('d/m/Y H:i') }}</td>
                                     <td>{{ $consulta->veterinario->user->name ?? 'N/A' }}</td>
                                     <td>{{ $consulta->peso ?? '-' }} kg / {{ $consulta->talla ?? '-' }} cm</td>
                                     <td>{{ Str::limit(strip_tags($consulta->diagnostico), 50) }}</td>
-                                    <td>
-                                        <a href="{{ route('expedientes.consultas.show', ['mascota' => $mascota->id, 'consulta' => $consulta->id]) }}" class="btn btn-sm btn-info" title="Ver Detalle">
-                                            <i class="fas fa-eye"></i>
-                                        </a>
+                                    <td class="text-center">
+                                        <div class="btn-group" role="group">
+                                            <a href="{{ route('expedientes.consultas.show', ['mascota' => $mascota->id, 'consulta' => $consulta->id]) }}" class="btn btn-sm btn-info" title="Ver Detalle">
+                                                <i class="fas fa-eye"></i>
+                                            </a>
+                                            <a href="{{ route('expedientes.consultas.edit', ['mascota' => $mascota->id, 'consulta' => $consulta->id]) }}" class="btn btn-sm btn-warning" title="Editar Consulta">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                            <a href="{{ route('expedientes.consultas.delete', ['mascota' => $mascota->id, 'consulta' => $consulta->id]) }}" class="btn btn-sm btn-danger" title="Eliminar Consulta">
+                                                <i class="fas fa-trash"></i>
+                                            </a>
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
+                </div>
+                <div class="d-flex justify-content-end mt-3">
+                    {{ $consultas->links('pagination::bootstrap-4') }}
                 </div>
             @else
                 <div class="text-center py-4 text-muted">

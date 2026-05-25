@@ -89,12 +89,18 @@
                                     <td>{{ $alimentacion->cantidad }}</td>
                                     <td>{{ $alimentacion->frecuencia }}</td>
                                     <td>{{ $alimentacion->observaciones }}</td>
-                                    <td>
-                                        <form action="{{ route('expedientes.mascota.alimentacion.destroy', $alimentacion->id) }}" method="POST" onsubmit="return confirm('¿Eliminar este registro?');">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
-                                        </form>
+                                    <td class="text-center">
+                                        <div class="btn-group" role="group">
+                                            <a href="{{ route('expedientes.mascota.alimentacion.show', $alimentacion->id) }}" class="btn btn-info btn-sm" title="Ver Detalle">
+                                                <i class="fas fa-eye"></i>
+                                            </a>
+                                            <a href="{{ route('expedientes.mascota.alimentacion.edit', $alimentacion->id) }}" class="btn btn-warning btn-sm" title="Editar Alimentación">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                            <a href="{{ route('expedientes.mascota.alimentacion.delete', $alimentacion->id) }}" class="btn btn-danger btn-sm" title="Eliminar Alimentación">
+                                                <i class="fas fa-trash"></i>
+                                            </a>
+                                        </div>
                                     </td>
                                 </tr>
                                 @empty

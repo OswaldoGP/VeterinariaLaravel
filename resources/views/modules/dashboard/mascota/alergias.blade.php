@@ -76,12 +76,18 @@
                                     <td>{{ $alergia->created_at->format('d/m/Y') }}</td>
                                     <td>{{ $alergia->nombre }}</td>
                                     <td>{{ $alergia->descripcion }}</td>
-                                    <td>
-                                        <form action="{{ route('expedientes.mascota.alergias.destroy', $alergia->id) }}" method="POST" onsubmit="return confirm('¿Eliminar este registro?');">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
-                                        </form>
+                                    <td class="text-center">
+                                        <div class="btn-group" role="group">
+                                            <a href="{{ route('expedientes.mascota.alergias.show', $alergia->id) }}" class="btn btn-info btn-sm" title="Ver Detalle">
+                                                <i class="fas fa-eye"></i>
+                                            </a>
+                                            <a href="{{ route('expedientes.mascota.alergias.edit', $alergia->id) }}" class="btn btn-warning btn-sm" title="Editar Alergia">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                            <a href="{{ route('expedientes.mascota.alergias.delete', $alergia->id) }}" class="btn btn-danger btn-sm" title="Eliminar Alergia">
+                                                <i class="fas fa-trash"></i>
+                                            </a>
+                                        </div>
                                     </td>
                                 </tr>
                                 @empty
